@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إذاعة سيئون - بث مباشر 24/7</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Cairo",sans-serif;
+}
+body{
+    background:#0a0a0a; /* أسود ملكي */
+    color:#ffffff;
+    padding:20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* هيدر */
+header{
+    text-align:center;
+    padding:40px 0 20px;
+    animation:fade 1.5s ease;
+}
+header h1{
+    font-size:2.8rem;
+    font-weight:700;
+    background: linear-gradient(to bottom, #00d2ff 0%, #00a8ff 100%); /* تدرج أزرق فاتح */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom:8px;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.2));
+}
+header p{
+    color:#00d2ff; /* أزرق فاتح هادئ */
+    font-size:1.2rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+/* مشغل الراديو */
+.player-section{
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 1px solid rgba(0, 210, 255, 0.3); /* حدود زرقاء شفافة */
+    border-radius: 30px;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 210, 255, 0.05);
+    animation: fade-up 1.2s ease;
+}
+.player-section h2{
+    color:#00d2ff; /* عنوان أزرق فاتح */
+    margin-bottom:25px;
+    font-size:1.6rem;
+    font-weight: 600;
+}
+
+/* تحسين شكل متصفح الصوت الافتراضي ليصبح أزرق */
+#audio-player{
+    width:100%;
+    height: 45px;
+    margin:20px auto;
+    filter: invert(100%) hue-rotate(180deg) brightness(1.2) sepia(20%) saturate(400%) hue-rotate(160deg);
+}
+
+.controls{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+}
+.play-btn{
+    background: linear-gradient(135deg, #00d2ff, #0084ff); /* تدرج أزرق للأزرار */
+    color:#000;
+    border:none;
+    padding:14px 40px;
+    border-radius:15px;
+    font-size:1.1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 132, 255, 0.2);
+}
+.play-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+    background: linear-gradient(135deg, #00d2ff, #00a8ff);
+}
+.play-btn:active{
+    transform: translateY(1px);
+}
+
+.status{
+    margin-top:20px;
+    font-size:1rem;
+    color:#00d2ff;
+    font-weight: 500;
+}
+
+/* تأثير النبض الأزرق الفاتح عند التشغيل */
+.playing-icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: #00d2ff;
+    border-radius: 50%;
+    margin-left: 8px;
+    box-shadow: 0 0 10px #00d2ff;
+    animation: pulse 1.5s infinite;
+}
+
+/* أنيميشن */
+@keyframes fade{0%{opacity:0;}100%{opacity:1;}}
+@keyframes fade-up{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 210, 255, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0); }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>إذاعة سيئون <span style="-webkit-text-fill-color: initial; text-shadow: none;">📻</span></h1>
+    <p>بث مباشر 24/7</p>
+</header>
+
+<section class="player-section">
+    <h2><span class="playing-icon"></span> استماع مباشر</h2>
+    
+    <audio id="audio-player" controls preload="auto">
+        <source src="https://s2.radio.co/s26c62011e/listen" type="audio/mpeg">
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <div class="controls">
+        <button class="play-btn" onclick="document.getElementById('audio-player').play()">تشغيل</button>
+        <button class="play-btn" style="background: transparent; border: 1px solid #00d2ff; color: #00d2ff;" onclick="document.getElementById('audio-player').pause()">إيقاف</button>
+    </div>
+    
+    <div class="status">جاهز للبث...</div>
+</section>
+
+<script>
+    const audio = document.getElementById('audio-player');
+    const status = document.querySelector('.status');
+    const pulseIcon = document.querySelector('.playing-icon');
+
+    audio.onplaying = () => {
+        status.innerHTML = "جاري التشغيل الآن... 🎶";
+        pulseIcon.style.display = "inline-block";
+    };
+    audio.onpause = () => {
+        status.textContent = "تم إيقاف البث";
+        pulseIcon.style.display = "none";
+    };
+    audio.onerror = () => {
+        status.textContent = "خطأ في الاتصال بالبث";
+    };
+</script>
+
+</body>
+</html>

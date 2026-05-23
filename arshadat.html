@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إرشادات الاستخدام - شبكة لايت نت</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Cairo", sans-serif;
+}
+body {
+    background: #0a0a0a;              /* أسود عميق */
+    color: #ffffff;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* هيدر */
+header {
+    text-align: center;
+    padding: 40px 10px;
+    animation: fade 1s ease;
+}
+header h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d2ff, #00a8ff); /* أزرق فاتح متدرج */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.3));
+}
+header p {
+    color: #00d2ff; /* أزرق فاتح */
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* قسم الإرشادات */
+.guide-section {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.guide-card {
+    background: #161616; 
+    border: 1px solid rgba(0, 210, 255, 0.2); /* حدود زرقاء شفافة */
+    border-radius: 20px;
+    padding: 25px;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: pop 0.8s forwards;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.guide-card:hover {
+    transform: translateY(-8px);
+    border-color: #00d2ff; /* حد أزرق مضيء عند التمرير */
+    box-shadow: 0 15px 35px rgba(0, 210, 255, 0.15);
+}
+.guide-card h2 {
+    color: #00d2ff; /* أزرق فاتح للعناوين */
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+.guide-card h2::before {
+    content: "✦";
+    margin-left: 10px;
+    color: #00a8ff;
+}
+.guide-content {
+    color: #e0e0e0;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.guide-content strong {
+    color: #00d2ff;
+}
+.guide-content span {
+    color: #00a8ff;
+    font-weight: bold;
+}
+.guide-content .warning {
+    color: #e0f7fa; /* لون فاتح متناسق مع التنبيه الأزرق */
+    background: rgba(0, 210, 255, 0.15); /* خلفية زرقاء خفيفة للتنبيه */
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+}
+.guide-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+.guide-list li {
+    padding: 8px 15px;
+    border-right: 3px solid #00d2ff; /* شريط جانبي أزرق */
+    background: rgba(0, 210, 255, 0.03);
+    margin-bottom: 8px;
+    color: #eee;
+    font-size: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+/* التذييل */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    color: #555;
+    border-top: 1px solid #1a1a1a;
+}
+
+/* أنيميشن */
+@keyframes fade { 0% {opacity:0;} 100% {opacity:1;} }
+@keyframes pop { 0% {opacity:0; transform:translateY(20px);} 100% {opacity:1; transform:translateY(0);} }
+
+/* تحسين للهواتف */
+@media (max-width: 480px) {
+    header h1 { font-size: 2rem; }
+    .guide-card { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>إرشادات الاستخدام - شبكة لايت نت ⚡</h1>
+    <p>دليلك الذكي لتوفير البيانات والحفاظ على الرصيد</p>
+</header>
+
+<section class="guide-section">
+
+    <div class="guide-card" style="animation-delay:0s;">
+        <h2>1. التحديثات التلقائية</h2>
+        <div class="guide-content">
+            <p>أول خطوة لتوفير رصيدك هي <strong>تعطيل التحديثات التلقائية</strong> من متجر التطبيقات (Play Store / App Store)، حيث أن التحديثات قد تبدأ فجأة وتستهلك الباقة بالكامل.</p>
+        </div>
+    </div>
+
+    <div class="guide-card" style="animation-delay:0.1s;">
+        <h2>2. فيسبوك (Facebook)</h2>
+        <div class="guide-content">
+            <p>تطبيق <span>Facebook الأساسي</span> يستهلك كميات ضخمة من البيانات في الخلفية. الخيار الأفضل هو استخدام <strong>Facebook Lite</strong> المصمم خصيصاً للتوفير.</p>
+        </div>
+    </div>
+
+    <div class="guide-card" style="animation-delay:0.2s;">
+        <h2>3. ضبط جودة اليوتيوب</h2>
+        <div class="guide-content">
+            <p>تجنب ترك جودة الفيديو <strong>"تلقائية"</strong>. قم بضبطها يدوياً على <span class="warning">360p أو 480p</span> لموازنة الاستهلاك. هذا ينطبق أيضاً على تيك توك وإنستقرام.</p>
+        </div>
+    </div>
+
+    <div class="guide-card" style="animation-delay:0.3s;">
+        <h2>4. التحميل التلقائي للميديا</h2>
+        <div class="guide-content">
+            <p>تأكد من إغلاق خاصية "التحميل التلقائي" في التطبيقات التالية لتتحكم في ما يتم تحميله:</p>
+            <ul class="guide-list">
+                <li>واتساب وتليغرام (هام جداً)</li>
+                <li>سناب شات وإنستغرام</li>
+                <li>تيك توك وفيسبوك</li>
+            </ul>
+            <p>يمكنك العثور على هذا الخيار في إعدادات <span>"استخدام البيانات والتخزين"</span> داخل كل تطبيق.</p>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    &copy; 2026 جميع الحقوق محفوظة لشبكة لايت نت
+</footer>
+
+</body>
+</html>
